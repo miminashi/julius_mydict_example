@@ -6,25 +6,32 @@
 brew install julius
 ```
 
-## 音響モデル？のダウンロード
-
-```sh
-curl https://github.com/julius-speech/dictation-kit/raw/master/model/phone_m/jnas-tri-3k16-gid.binhmm > jnas-tri-3k16-gid.binhmm
-```
-
-## 辞書ファイルの用意
-
-```sh
-cp -r ./example ./mydict
-vim ./mydict/dict.symbols
-vim ./mydict/dict.grammar
-./mkdict.sh ./mydict
-```
-
 ## juliusの実行
 
+### あいさつサンプル
+
+- 「おはよう」「おはようございます」「こんにちは」「こんばんは」
+
 ```sh
-julius -h ./jnas-tri-3k16-gid.binhmm -nostrip -gram ./mydict/dict -input mic
+./run_julius.sh ./examples/hello
+```
+
+### 右左数え上げサンプル
+
+- 「みぎにいっこ」「ひだりにごこ」「みぎにろっこ」など
+- 「きゅうこ」と「じゅっこ」を追加しようよするとうまくいかない
+
+```sh
+./run_julius.sh ./examples/count
+```
+
+## 自前の辞書のつくりかた
+
+```sh
+cp -r ./examples/hello ./mydict
+vim ./mydict/dict.symbols
+vim ./mydict/dict.grammar
+./run_julius.sh ./mydict
 ```
 
 ## 参考
