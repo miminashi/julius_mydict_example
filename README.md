@@ -27,6 +27,12 @@ brew install julius
 ./run_julius.sh ./examples/count
 ```
 
+### 歯医者サンプル（未完成）
+
+```sh
+./run_julius.sh ./examples/dental
+```
+
 ## 自前の辞書のつくりかた
 
 ```sh

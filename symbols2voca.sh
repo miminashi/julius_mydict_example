@@ -1,6 +1,7 @@
 #!/bin/sh
 
 grep -v '^#' |
+grep -v '^$' |
 while read -r l; do
   symbol="$(echo "${l}" | cut -d ' ' -f 1)"
   phone="$(echo "${l}" | cut -d ' ' -f 2- | awk '{print $1, $1}' | yomi2voca.pl)"
